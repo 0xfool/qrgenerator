@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QR Code Generator</title>
+    <script src="js/qrcode.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="align-center">
+    <h1>QR Code Generator</h1>
+    <input type="text" id="textinput">
+    <button onclick="showqr()">Create QR Code</button>
+    <div id="qrcode" class="centerdiv"></div>
+    <script type="text/javascript">
+        function showqr() {
+            var qrcode = document.getElementById("qrcode")
+            var textinput = document.getElementById("textinput");
+            qrcode.innerHTML = "";
+            new QRCode(qrcode, textinput.value);
+        }
+    </script>
+</body>
+
+</html>
