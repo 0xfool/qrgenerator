@@ -13,6 +13,12 @@
     <button onclick="showqr()">Create QR Code</button>
     <div id="qrcode" class="centerdiv"></div>
     <script type="text/javascript">
+        var queryDict = {}
+        location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+        if(queryDict["code"]){
+            var qrcode = document.getElementById("qrcode");
+            new QRCode(qrcode, queryDict["code"]);
+        }
         function showqr() {
             var qrcode = document.getElementById("qrcode")
             var textinput = document.getElementById("textinput");
